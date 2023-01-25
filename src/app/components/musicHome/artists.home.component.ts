@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'deezer-home-component',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ArtistsHomePageComponent implements OnInit {
-    constructor() { }
 
-    ngOnInit() { }
+    searchForm!: FormGroup;
+
+    constructor(private _fb: FormBuilder) { }
+
+    ngOnInit() 
+    { 
+        this.searchForm = this._fb.group({
+            artistName: ["", {nonNullable: true}]
+        })
+
+        console.log('😁', this.searchForm);
+    }
 }
