@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { debounceTime,  Subscription } from 'rxjs';
+import { Artist } from 'src/app/interfaces/artist.interface';
+import { MusicService } from 'src/app/services/deezer.service';
 
 @Component({
     selector: 'deezer-home-component',
@@ -8,17 +11,34 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 
 export class ArtistsHomePageComponent implements OnInit {
-
-    searchForm!: FormGroup;
-
-    constructor(private _fb: FormBuilder) { }
+    
+    searchControl!: FormControl;
+    searchTextformCtrlSub!: Subscription;
+    artist:any;
+    
+    constructor(private _formBuilder: FormBuilder,
+                private _musicService: MusicService) { }
 
     ngOnInit() 
-    { 
-        this.searchForm = this._fb.group({
-            artistName: ["", {nonNullable: true}]
-        })
+    {  
+      // Intializes the search Form control.
+      // Non-Nullable ensures that we are not dealing with a null value.
+      this.searchControl = this._formBuilder.control("", { nonNullable: true });
 
-        console.log('😁', this.searchForm);
+      // DebounceTime => Avoids multiple calls to the API.
+      this.searchControl.valueChanges.pipe(debounceTime(1000))
+                         .subscribe(newValue => { 
+                            this.searchArtist(newValue)
+                          });
     }
-}
+
+    // This function will search for the artist and display the artist on screen.
+    searchArtist(artist: string)
+    {
+      return this._musicService.SearchArtistByName(artist)
+                 .subscribe(artists => {console.log('😁',artists)});
+    }
+
+
+
+}        

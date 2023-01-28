@@ -1,1 +1,15 @@
-<h1> This is the home page</h1>
+<div fxLayout="column" fxLayoutGap="30px">
+
+<div fxLayout="column" fxLayoutAlign="center center">
+  <img class="search-music" src="/assets/artist-search.svg">
+</div>
+
+<div fxLayout="column" fxLayoutAlign="center center">
+    <span class="opening-text"> Search For An Artist Here </span>
+</div>
+
+<div class="e-input-group e-corner" fxLayout="row" fxLayoutAlign="center center">
+    <input matInput [formControl]="searchControl"  autocomplete="off" id="input-field"/>
+    <span matSuffix><i class="fas fa-search"></i>&nbsp;</span>
+</div>
+</div>
