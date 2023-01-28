@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
 
 import { ArtistsHomePageComponent } from './components/musicHome/artists.home.component';
 import { MusicService } from './services/deezer.service';
@@ -25,7 +26,8 @@ import { MusicService } from './services/deezer.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [ MusicService ],
   bootstrap: [AppComponent]
