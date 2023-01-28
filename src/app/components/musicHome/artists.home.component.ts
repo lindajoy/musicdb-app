@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { catchError, debounceTime,  of,  Subscription } from 'rxjs';
+
 import { Artist } from 'src/app/interfaces/artist.interface';
 import { MusicService } from 'src/app/services/deezer.service';
 
@@ -17,6 +20,7 @@ export class ArtistsHomePageComponent implements OnInit {
     artist!:Artist;
     
     constructor(private _formBuilder: FormBuilder,
+                private _router$$: Router,
                 private _musicService: MusicService) { }
 
     ngOnInit() 
@@ -59,6 +63,6 @@ export class ArtistsHomePageComponent implements OnInit {
 
     goToDetail()
     {
-      console.log('Hello world')
+     
     }
 }        
