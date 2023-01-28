@@ -56,4 +56,9 @@ export class ArtistsHomePageComponent implements OnInit {
 
       return this.artist;
     }
+
+    goToDetail()
+    {
+      console.log('Hello world')
+    }
 }        
