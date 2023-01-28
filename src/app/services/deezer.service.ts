@@ -9,7 +9,7 @@ export class MusicService {
     
     constructor(private httpClient: HttpClient) { }
 
-    SearchArtistByName(artistName: string)
+    searchArtistByName(artistName: string)
     {
      return this.httpClient.get(this.searchUrl + artistName);
     }
