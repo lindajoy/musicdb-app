@@ -40,7 +40,7 @@ export class ArtistsHomePageComponent implements OnInit {
     searchArtist(artist: string)
     {
       return this._musicService
-                  .SearchArtistByName(artist)
+                  .searchArtistByName(artist)
                   .pipe(
                     // catchError operator takes as input an Observable that might error out.
                     catchError(err => of([])))
@@ -52,6 +52,10 @@ export class ArtistsHomePageComponent implements OnInit {
 
     createArtistObject(artist: any)
     {
+      if(artist.error)
+      {
+
+      }
       this.artist = {
             name: artist?.data[0]?.artist?.name,
             picture: artist?.data[0]?.artist?.picture_medium,
@@ -63,6 +67,6 @@ export class ArtistsHomePageComponent implements OnInit {
 
     goToDetail()
     {
-     
+     this._router$$.navigate(['hello']);
     }
 }        

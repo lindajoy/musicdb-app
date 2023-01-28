@@ -1,29 +1,36 @@
-<div fxLayout="column" fxLayoutGap="15px">
+<div fxLayout="column" fxLayoutGap="15px" class="top-part">
 
-<div fxLayout="column" fxLayoutAlign="center center">
-  <img class="search-music" src="/assets/artist-search.svg">
-</div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <img class="search-music" src="/assets/artist-search.svg">
+    </div>
 
-<div fxLayout="column" fxLayoutAlign="center center">
-    <span class="opening-text"> Search For An Artist Here </span>
-</div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <span class="opening-text"> Search For An Artist Here </span>
+    </div>
 
-<div class="e-input-group e-corner" fxLayout="row" fxLayoutAlign="center center">
-    <input matInput [formControl]="searchControl"  autocomplete="off" id="input-field"/>
-    <span matSuffix><i class="fas fa-search"></i>&nbsp;</span>
-</div>
-</div>
-
-<div *ngIf="artist">
-    <div class="page" fxLayout="row wrap" fxLayoutGap="50" fxlayoutAlign="center center">
-        <div class="mat-card-div" fxFlex="25%" >
-        <mat-card (click)="goToDetail()">
-            <img class="img" alt="girl" [src]="artist.picture" />
-            <div class="details">
-                <span class="title">{{ artist.name }}</span><br>
-                <span class="fans"> {{ artist.fans }} </span>
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input matInput [formControl]="searchControl" type="text" class="form-control form-input">
+                    <span class="left-pan"><i class="fas fa-search"></i></span>
+                </div>
             </div>
-        </mat-card>
+        </div>
     </div>
 </div>
+
+<div *ngIf="artist" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div class="page" fxLayout="row wrap" fxLayoutGap="50" fxlayoutAlign="center center">
+        <div class="mat-card-div" fxFlex="25%">
+            <mat-card (click)="goToDetail()">
+                <img class="img" alt="girl" [src]="artist.picture" />
+                <div>
+                    <span class="title">{{ artist.name }}</span><br>
+                    <span class="fans"> {{ artist.fans }} </span>
+                </div>
+            </mat-card>
+        </div>
+    </div>
 </div>

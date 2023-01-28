@@ -28,6 +28,7 @@ mat-card{
     height: 300px;
     width: 300px;
     padding-bottom: 0;
+    background-color: whitesmoke;
 }
 
 mat-card img {
@@ -41,4 +42,8 @@ mat-card img {
     text-align: center;
     font-size: 1.5rem;
     color: black;
+}
+
+.top-part {
+    padding-bottom: 20px;
 }
