@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutGap="30px">
+<div fxLayout="column" fxLayoutGap="15px">
 
 <div fxLayout="column" fxLayoutAlign="center center">
   <img class="search-music" src="/assets/artist-search.svg">
@@ -12,4 +12,16 @@
     <input matInput [formControl]="searchControl"  autocomplete="off" id="input-field"/>
     <span matSuffix><i class="fas fa-search"></i>&nbsp;</span>
 </div>
+</div>
+
+<div *ngIf="artist">
+    <div fxLayout="row" class="row-char">
+        <mat-card class="example-card mat-elevation-z8" fxLayout="column" fxLayoutAlign="center center">
+            <mat-card-header>
+                <mat-card-title> {{ artist.name }} </mat-card-title>
+              </mat-card-header>
+            <img class="img" alt="girl" [src]="artist.picture" />
+            <span class="fans"> {{ artist.fans }} </span>
+        </mat-card>
+    </div>
 </div>
