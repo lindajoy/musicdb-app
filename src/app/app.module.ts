@@ -13,15 +13,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 
 import { ArtistsHomePageComponent } from './components/musicHome/artists.home.component';
-import { ArtistDetailsComponent } from './components/artistDetails/artist.detail.component';
 import { MusicService } from './services/deezer.service';
+import { DetailArtistsComponent } from './components/detail-artists/detail-artists.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtistsHomePageComponent,
-    ArtistDetailsComponent
+    DetailArtistsComponent
   ],
 
   imports: [
