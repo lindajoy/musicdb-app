@@ -15,31 +15,31 @@ import { MusicService } from 'src/app/services/deezer.service';
 
 export class ArtistsHomePageComponent implements OnInit {
     
-    searchControl!: FormControl;
-    searchTextformCtrlSub!: Subscription;
-    artist!:Artist;
+  searchControl!: FormControl;
+  searchTextformCtrlSub!: Subscription;
+  artist!:Artist;
     
-    constructor(private _formBuilder: FormBuilder,
-                private _router$$: Router,
-                private _musicService: MusicService) { }
+  constructor(private _formBuilder: FormBuilder,
+              private _router$$: Router,
+              private _musicService: MusicService) { }
 
-    ngOnInit() 
-    {  
-      // Intializes the search Form control.
-      // Non-Nullable ensures that we are not dealing with a null value.
-      this.searchControl = this._formBuilder.control("", { nonNullable: true });
+  ngOnInit() 
+  {  
+    // Intializes the search Form control.
+    // Non-Nullable ensures that we are not dealing with a null value.
+    this.searchControl = this._formBuilder.control("", { nonNullable: true });
 
-      // DebounceTime => Avoids multiple calls to the API.
-      this.searchControl.valueChanges.pipe(debounceTime(1000))
+    // DebounceTime => Avoids multiple calls to the API.
+    this.searchControl.valueChanges.pipe(debounceTime(1000))
                          .subscribe(newValue => { 
                             this.searchArtist(newValue)
                           });
     }
 
     // This function will search for the artist and display the artist on screen.
-    searchArtist(artist: string)
-    {
-      return this._musicService
+  searchArtist(artist: string)
+  {
+    return this._musicService
                   .searchArtistByName(artist)
                   .pipe(
                     // catchError operator takes as input an Observable that might error out.
@@ -47,26 +47,22 @@ export class ArtistsHomePageComponent implements OnInit {
                  .subscribe((artist) => {
                    this.createArtistObject(artist);
                  });
-    }
+  }
 
 
-    createArtistObject(artist: any)
-    {
-      if(artist.error)
-      {
+  createArtistObject(artist: any)
+  {
+    this.artist = {
+          name: artist?.data[0]?.artist?.name,
+          picture: artist?.data[0]?.artist?.picture_medium,
+          fans: artist?.total
+    } as Artist
 
-      }
-      this.artist = {
-            name: artist?.data[0]?.artist?.name,
-            picture: artist?.data[0]?.artist?.picture_medium,
-            fans: artist?.total
-      } as Artist
+    return this.artist;
+  }
 
-      return this.artist;
-    }
-
-    goToDetail()
-    {
-     this._router$$.navigate(['hello']);
-    }
+  goToDetail()
+  {
+    this._router$$.navigate(['artist-details']);
+  }
 }        
