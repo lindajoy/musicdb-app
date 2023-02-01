@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="assets/deezer.png" alt="" width="50" height="30" class="d-inline-block align-text-top">
-        <span class="header-text">Artist Search Application</span>
+        <span class="header-text">{{ this.setPageHeader() }}</span>
     </a>
   </div>
 </nav>
 
-<deezer-home-component></deezer-home-component>
+<router-outlet></router-outlet>
 
