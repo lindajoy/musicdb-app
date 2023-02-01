@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,8 +12,7 @@ export class AppComponent implements OnInit {
   header!: string
 
 
-  constructor(private router: Router,
-              private _activatedRoute: ActivatedRoute){}
+  constructor(private router: Router){}
 
   ngOnInit()
   {
