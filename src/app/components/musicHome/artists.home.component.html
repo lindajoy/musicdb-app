@@ -24,7 +24,7 @@
 <div *ngIf="artist" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
     <div class="page" fxLayout="row wrap" fxLayoutGap="50" fxlayoutAlign="center center">
         <div class="mat-card-div" fxFlex="25%">
-            <mat-card (click)="goToDetail()">
+            <mat-card (click)="goToDetail(artist.id)">
                 <img class="img" alt="girl" [src]="artist.picture" />
                 <div>
                     <span class="fans"> Artist Name : {{ artist.name }}</span><br>
