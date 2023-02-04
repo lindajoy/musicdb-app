@@ -53,6 +53,7 @@ export class ArtistsHomePageComponent implements OnInit {
   createArtistObject(artist: any)
   {
     this.artist = {
+          id: artist.data[0].artist.id,
           name: artist?.data[0]?.artist?.name,
           picture: artist?.data[0]?.artist?.picture_medium,
           fans: artist?.total
@@ -61,8 +62,8 @@ export class ArtistsHomePageComponent implements OnInit {
     return this.artist;
   }
 
-  goToDetail()
+  goToDetail(id: string)
   {
-    this._router$$.navigate(['artist-details']);
+    this._router$$.navigate(['artist-details', id]);
   }
 }        
