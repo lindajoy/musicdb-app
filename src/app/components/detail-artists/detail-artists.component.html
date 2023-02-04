@@ -1,1 +1,23 @@
-<p>detail-artists works!</p>
+<div fxLayout="column" fxLayoutGap="20px">
+    <div *ngIf="artist">
+        <mat-grid-list cols="2" rowHeight="3:2">
+            <span>{{ artist.name }}</span>
+            <mat-grid-tile>
+                <img [src]="artist.picture_big" alt="artist picture">
+            </mat-grid-tile>
+            <span class="artist">Top Tracks</span>
+            <mat-grid-tile>
+                <mat-list>
+                    <mat-list-item *ngFor="let album of tracks">
+                        <h3 matLine class="album-line"> * &nbsp;{{ album.title }}</h3>
+                    </mat-list-item>
+                </mat-list>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <span>Albums</span>
+    <div class="mat-elevation-z2">
+        hello world
+    </div>
+</div>
