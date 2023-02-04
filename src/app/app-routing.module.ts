@@ -18,8 +18,9 @@ const routes: Routes = [
     component: ArtistsHomePageComponent,
     title: "Deezer Home Page"
   },
+
   {
-    path: 'artist-details',
+    path: 'artist-details/:id',
     component:  DetailArtistsComponent,
     title: 'Artist Details Page'
   }

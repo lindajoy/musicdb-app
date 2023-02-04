@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+
 
 import { ArtistsHomePageComponent } from './components/musicHome/artists.home.component';
 import { MusicService } from './services/deezer.service';
@@ -34,6 +37,8 @@ import { DetailArtistsComponent } from './components/detail-artists/detail-artis
     MatToolbarModule,
     FlexLayoutModule,
     MatCardModule,
+    MatGridListModule,
+    MatListModule,
     RouterModule
   ],
   providers: [ MusicService ],
